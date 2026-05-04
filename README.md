@@ -12,7 +12,7 @@ No vendor pitches. No hype cycles. Just careful writing about how infrastructure
 
 ### 2026
 
-- **[The AI Infrastructure Squeeze: Why Data Center Capacity Became the Bottleneck Nobody Planned For](./articles/ai-infrastructure-squeeze.md)**  
+- **[The AI Infrastructure Squeeze: Why Data Center Capacity Became the Bottleneck Nobody Planned For](AI-infrastructure-and-data-center-demand)**  
   *On power constraints, the economics of GPU-dense racks, and why the AI conversation is quietly becoming an infrastructure conversation.*
 
 *More essays in progress. Watch the repo or check back periodically.*
