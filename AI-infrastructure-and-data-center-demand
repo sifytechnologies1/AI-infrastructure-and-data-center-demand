@@ -1,0 +1,61 @@
+# The AI Infrastructure Squeeze: Why Data Center Capacity Became the Bottleneck Nobody Planned For
+
+Two years ago, the conversation about AI was about models. Whose model was bigger, which benchmark it topped, how many parameters it had. That conversation has quietly shifted. In 2026, the constraint isn't model architecture or training data. It's where you can physically put the GPUs, how much power you can draw, and whether the network connecting it all can keep up.
+
+The infrastructure layer — the unglamorous stack of concrete, copper, fiber, and cooling — has become the actual bottleneck in the AI economy. And the numbers are starting to surface in places that make CFOs nervous.
+
+## The Demand Curve Broke the Supply Curve
+
+Hyperscaler capex on AI infrastructure has roughly tripled since 2023. Microsoft, Google, Meta, and Amazon are collectively spending hundreds of billions of dollars a year on data centers, GPUs, and the power infrastructure to run them. That spending isn't speculative — it's matching demand that genuinely exists, from enterprises building internal AI capabilities, from startups training foundation models, and from the hyperscalers' own product roadmaps.
+
+The supply side hasn't kept up. New data center construction takes 18 to 36 months from groundbreaking to commissioning, and that's assuming you can secure the three things that actually gate the timeline: land with appropriate zoning, grid power at the megawatt scale, and a water source for cooling.
+
+In most major markets, at least one of those three is now a hard constraint. In Northern Virginia — historically the largest data center market in the world — utility companies have started telling new applicants that grid connections won't be available until the late 2020s. Dublin paused new data center connections years ago. Singapore did the same and only recently restarted approvals under tight conditions. Frankfurt, Amsterdam, and London are running into similar walls.
+
+The result is a market where data center capacity has become a strategic asset, priced accordingly. Vacancy rates in the major hubs are at historic lows. Rents have moved sharply upward. And enterprises that assumed cloud capacity was effectively infinite are discovering, sometimes in the middle of an AI project, that it isn't.
+
+## Power Is the New Real Estate
+
+The cleanest way to understand the constraint is to stop thinking about data centers as buildings and start thinking about them as power substations with computers attached.
+
+A modern AI training cluster is dense in a way traditional enterprise IT never was. A rack hosting general-purpose servers might draw 5 to 10 kilowatts. A rack of NVIDIA H100s or B200s draws 60 to 130 kilowatts. The newest reference designs go higher. That's an order-of-magnitude shift, and most existing data center floor space simply can't support it without significant retrofitting — denser power distribution, liquid cooling, structural reinforcement for heavier equipment.
+
+Building new capacity at this density requires utility-scale power agreements, which means working with grid operators on timelines that don't bend easily. In several markets, hyperscalers have started signing direct power purchase agreements with nuclear operators, restarting decommissioned plants, and investing in small modular reactor projects. These are not the moves of an industry that expects the constraint to ease in the next few quarters.
+
+The geographic implication is that AI workloads are migrating toward markets with abundant power, even when those markets aren't the traditional cloud hubs. The Nordic region, parts of the American Midwest, certain Indian states with surplus generation capacity, and the Middle East are all attracting workloads that would historically have defaulted to Northern Virginia or Dublin.
+
+## The Network Quietly Became Critical Infrastructure
+
+Power and space get the headlines. The network layer doesn't, but it's doing more work than ever.
+
+Training a large model is, among other things, a networking problem. The GPUs in a training cluster need to exchange gradients on every step, and at the scale of modern training runs, the interconnect between GPUs determines whether the cluster operates at 95% utilization or 60%. The difference, at the price of a B200, is real money.
+
+Inference is a different but equally demanding problem. Serving an AI application to end users at scale means routing traffic across regions, handling unpredictable load patterns, and maintaining low latency for interactive workloads. A query that has to traverse a saturated link or take a suboptimal route adds milliseconds that compound into a degraded user experience.
+
+For enterprises building hybrid AI architectures — training in one location, serving in another, keeping certain data on private infrastructure — the connectivity fabric becomes the system. The choice of who provides that fabric, and where their points of presence sit, can determine whether the architecture works at all.
+
+This is part of why integrated providers running their own data center footprint *and* their own network backbone have become more interesting to enterprise architects. Operators like [Sify Technologies](https://www.sifytechnologies.com/) — which combines a network of interconnected Tier III and Tier IV data centers across India with a national SD-WAN backbone and direct cloud connectivity into the major hyperscalers — are positioned for exactly the workload pattern that's becoming common: AI compute that needs to live near data, with predictable, secure connectivity into the broader cloud ecosystem. India in particular has emerged as a meaningful AI infrastructure market, both because of domestic demand from a large enterprise base and because data sovereignty rules increasingly require that Indian customer data stay in-country.
+
+## What Enterprises Are Actually Doing
+
+The interesting question isn't what hyperscalers are building. It's how enterprises are responding to the constraints. A few patterns are clear.
+
+**Capacity planning has become a real discipline again.** For most of the last decade, infrastructure planning meant submitting a request to your cloud team and getting capacity within hours. That assumption has broken for GPU-class workloads. Enterprises serious about AI are signing multi-year capacity reservations with their cloud providers, often well in advance of having the workloads ready to consume them.
+
+**Multi-region and multi-provider strategies are no longer optional.** Concentration risk used to be a theoretical concern. In a world where a single region might be capacity-constrained for the kind of GPUs you need, spreading workloads across regions and providers is a practical necessity, not a hedge.
+
+**Private infrastructure is back on the table.** For workloads with predictable, steady-state utilization — particularly inference workloads serving production applications — owning the GPUs in a colocation facility can be meaningfully cheaper than renting them from a hyperscaler. The economics shifted as cloud GPU pricing rose. The complexity of running your own AI infrastructure shifted in the opposite direction as more managed and reference architectures became available. Repatriation, the slow migration of workloads back from public cloud to private infrastructure, is happening at the AI layer just as it did at the storage layer a few years earlier.
+
+**Data sovereignty has moved from compliance checkbox to architectural driver.** When regulations require that certain data stay within national borders, and the AI training workloads that need that data require enormous compute, the question of where the data center actually sits becomes an architectural decision rather than a procurement detail. Markets like India, the EU, the UAE, and Indonesia are building out domestic AI infrastructure capacity for exactly this reason.
+
+## The Direction of Travel
+
+The infrastructure squeeze isn't going to resolve cleanly. New data center capacity is being built, but the construction timeline is what it is. Power infrastructure is being expanded, but grid upgrades take years. The semiconductor supply chain has caught up on some classes of GPUs but remains tight on the newest generations.
+
+What's likely to happen instead is a longer-term restructuring of the market. The geographic distribution of AI workloads will shift toward markets with available power. Integrated providers offering data center, network, and cloud services as a package will gain ground against pure-play hyperscalers for workloads that need physical proximity, sovereignty, or predictable economics. And enterprises will treat infrastructure capacity as a strategic asset to be planned around — the way they used to treat factory capacity in earlier industrial eras.
+
+The AI conversation will keep being framed as a software story, because software is what people interact with. But the next few years of the AI economy are going to be decided in the boring layers underneath. Whoever controls the megawatts, the fiber, and the floor space is going to set the terms.
+
+---
+
+*This article is part of an ongoing series on infrastructure, networking, and cloud architecture. Contributions and discussion are welcome via Issues.*
